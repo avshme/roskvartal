@@ -1,0 +1,703 @@
+@import './config';
+
+@mixin flexJustifyAlign($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin fontFamilySans($font) {
+    @if $font {
+        font-family: 'PT Sans', sans-serif;
+    }
+
+    @else {
+        font-family: 'PT Serif', serif;
+    }
+}
+
+.btn {
+    font-weight: bold;
+    font-size: 14px;
+    @include fontFamilySans(true);
+    background-color: $red;
+    border: none;
+    padding: 0 44px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.main-container {
+    background: url(../img/bg-header.png) no-repeat;
+    background-size: cover;
+}
+
+.header {
+    height: 80px;
+}
+
+.description {
+    padding: 100px $padding-section;
+    color: white;
+
+    &__caption {
+        width: 85%;
+        @include fontFamilySans(false);
+        font-size: 42px;
+
+        &--highlight {
+            color: $red;
+        }
+    }
+
+    &__text {
+        width: 60%;
+        margin-top: 15px;
+        @include fontFamilySans(true);
+        font-size: 20px;
+        color: $transparency-white;
+    }
+
+    &__btn {
+        height: 60px;
+        margin-top: 32px;
+        font-size: 16px;
+        box-shadow: 0px 0px 76px transparentize($red, 0.7);
+    }
+}
+
+
+.counters {
+    color: white;
+    padding: 0 $padding-section 90px;
+    width: 98%;
+    @include flexJustifyAlign(space-between, flex-start);
+    flex-wrap: wrap;
+}
+
+.counter {
+    width: 205px;
+
+    &__caption {
+        @include fontFamilySans(true);
+        color: $transparency-white;
+        font-weight: normal;
+        font-size: 18px;
+    }
+
+    &__num {
+        @include fontFamilySans(false);
+        font-weight: bold;
+        font-size: 42px;
+    }
+}
+
+.motivation {
+    @include flexJustifyAlign(space-between, center);
+    flex-wrap: wrap;
+    padding: 70px $padding-section;
+
+    &__text {
+        width: 45%;
+        color: #858585;
+        @include fontFamilySans(false);
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 126%;
+
+        &--highlight {
+            color: $dark-blue;
+        }
+    }
+}
+
+.video {
+    width: 48%;
+    @include flexJustifyAlign(space-between, center);
+
+    &__play-outer-circle {
+        cursor: pointer;
+        flex-shrink: 0;
+        width: 120px;
+        height: 120px;
+        border: 3px solid transparentize($red, 0.9);
+        border-radius: 50%;
+        @include flexJustifyAlign(center, center);
+    }
+
+    &__play-inner-circle {
+        @extend .video__play-outer-circle;
+        width: 84px;
+        height: 84px;
+        border: 3px solid $red;
+    }
+
+    &__description {
+        @include fontFamilySans(true);
+        font-size: 18px;
+        color: #474747;
+        margin-left: 30px;
+    }
+}
+
+.reasons-section {
+    background-color: $light-blue-bg;
+    padding: 70px $padding-section 23px;
+}
+
+.section-caption {
+    @include fontFamilySans(false);
+    font-size: 28px;
+    margin-bottom: 32px;
+    color: $dark-blue;
+}
+
+.reasons {
+    @include flexJustifyAlign(space-between, center);
+    flex-wrap: wrap;
+
+    &-item {
+        @include flexJustifyAlign(space-between, flex-start);
+        width: 50%;
+        margin-bottom: 45px;
+
+        &__img {
+            margin-right: 20px;
+        }
+
+        &__caption {
+            @include fontFamilySans(false);
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: $h3-caption-color;
+        }
+
+        &__text {
+            @include fontFamilySans(true);
+            font-size: 18px;
+            color: #919191;
+        }
+    }
+}
+
+.offering-section {
+    padding: 70px $padding-section;
+}
+
+.offering {
+    height: 520px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0px 0px 15px -6px rgba(0, 0, 0, 0.4);
+
+    &-nav {
+        &__item {
+            @include flexJustifyAlign(flex-start, center);
+            @include fontFamilySans(true);
+            color: white;
+            padding-left: 37px;
+            width: 324px;
+            height: 65px;
+            background: $offering-nav-bg;
+            font-size: 18px;
+            border: none;
+            border-bottom: 1px solid transparentize(white, 0.9);
+
+            &--active {
+                position: relative;
+                border: none;
+                font-weight: bold;
+                background-color: $offering-nav-bg--active;
+
+                &::before {
+                    content: '›';
+                    position: relative;
+                    right: 0;
+                    top: 50%;
+                    margin-top: -3px;
+                    font-size: 22px;
+                    margin-right: 12px;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: -9px;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 11px 0 11px 11px;
+                    border-color: transparent transparent transparent $offering-nav-bg--active;
+                }
+            }
+        }
+    }
+
+    &-item {
+        position: absolute;
+        top: 0;
+        left: 324px;
+        visibility: hidden;
+        height: 100%;
+        padding: 50px 200px 0 62px;
+        background: url(../img/offering-bg.png) no-repeat bottom right;
+
+        &__caption {
+            @include fontFamilySans(false);
+            font-size: 22px;
+            color: $h3-caption-color;
+        }
+
+        &__text-container {
+            margin: 40px 0;
+        }
+
+        &__text {
+            margin-bottom: 20px;
+            @include fontFamilySans(true);
+            font-size: 16px;
+            line-height: 21px;
+            color: #333333;
+        }
+
+        &__btn {
+            @include fontFamilySans(true);
+            font-size: 14px;
+            padding: 15px 44px;
+        }
+
+        &--active {
+            visibility: visible;
+        }
+    }
+}
+
+.news-section {
+    padding: 70px $padding-section 35px;
+    background-color: $light-blue-bg;
+}
+
+.post-review {
+    cursor: pointer;
+}
+
+.news__latest-posts {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.post {
+    &__caption {
+        @include fontFamilySans(false);
+        font-size: 16px;
+        line-height: 19px;
+        color: black;
+        margin: 8px 0;
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+    &__footer {
+        @include flexJustifyAlign(space-between, center);
+        margin-top: 9px;
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &__text {
+        @include fontFamilySans(true);
+        margin-bottom: 9px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+.main-post {
+    width: 65%;
+
+    &__caption {
+        font-size: 22px;
+        line-height: 29px;
+        margin-top: 10px;
+    }
+
+    &__text {
+        margin: 12px 0;
+        @include fontFamilySans(true);
+        font-size: 16px;
+        line-height: 22px;
+    }
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+
+    &__img {
+        height: 22px;
+        width: 22px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+    &__name {
+        @include fontFamilySans(true);
+        font-weight: bold;
+        font-size: 14px;
+        color: $grey-text;
+    }
+}
+
+.post-statistics {
+    float: right;
+    @include fontFamilySans(true);
+    font-size: 12px;
+
+    &__date {
+        @include fontFamilySans(true);
+        color: $grey-text;
+        font-size: 12px;
+    }
+
+    &__item {
+        display: inline-block;
+        margin: 0 0 0 10px;
+        text-decoration: none;
+        color: $grey-text;
+    }
+}
+
+.additional-posts {
+    width: 30.333%;
+    @include flexJustifyAlign(space-between, center);
+    flex-direction: column;
+}
+
+.row-post {
+    @include flexJustifyAlign(space-between, flex-start);
+    margin: 35px 0;
+
+    &__item {
+        width: 30.333%;
+    }
+}
+
+.section-subscribe {
+    background-color: $dark-blue;
+}
+
+.subscribe {
+    @include flexJustifyAlign(space-between, center);
+    color: white;
+    padding: 60px $padding-section;
+
+    &__caption {
+        width: 150px;
+        @include fontFamilySans(false);
+        letter-spacing: 1px;
+        font-size: 22px;
+    }
+
+    &__form {
+        display: flex;
+    }
+
+    &__email {
+        @include fontFamilySans(true);
+        width: 525px;
+        background: rgba(255, 255, 255, 0.2);
+        height: 48px;
+        border: none;
+        font-size: 14px;
+        padding-left: 16px;
+
+        &::placeholder {
+            @include fontFamilySans(true);
+            color: $transparency-white;
+        }
+    }
+
+    &__btn {
+        height: 48px;
+        width: 205px;
+        font-size: 14px;
+    }
+}
+
+.events {
+    padding: 70px $padding-section 38px;
+
+    &-nav {
+        @include flexJustifyAlign(space-between, center);
+        margin-bottom: 34px;
+
+        &__btn {
+            height: 48px;
+            width: 30%;
+        }
+    }
+
+    &__container {
+        @include flexJustifyAlign(space-between, flex-start);
+        flex-wrap: wrap;
+    }
+}
+
+.dropdown-list {
+    @extend .events-nav__btn;
+    position: relative;
+    @include fontFamilySans(true);
+    width: 308px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.7);
+    padding-left: 18px;
+    font-size: 14px;
+    appearance: none;
+    background: url(../img/arrow-events.png) no-repeat 280px center;
+}
+
+.event {
+    width: 30%;
+    margin-bottom: 32px;
+
+    &__data {
+        color: $red;
+        @include fontFamilySans(false);
+        font-weight: bold;
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    &__caption {
+        font-size: 16px;
+        line-height: 21px;
+        @include fontFamilySans(false);
+        margin: 12px 0 16px;
+    }
+
+    &__img {
+        width: 100%;
+        margin-bottom: 7px;
+    }
+}
+
+.expert-section {
+    background-color: $light-blue-bg;
+}
+
+.experts {
+    padding: 70px $padding-section 40px;
+}
+
+.experts__container {
+    @include flexJustifyAlign(space-between, flex-start);
+    flex-wrap: wrap;
+}
+
+.expert {
+    width: 202px;
+    margin-bottom: 30px;
+    color: transparent(black, 0.8);
+
+    &__img {
+        width: 100%;
+    }
+
+    &__caption {
+        @include fontFamilySans(true);
+        font-size: 22px;
+        line-height: 26px;
+        color: #102040;
+        margin: 14px 0 12px;
+    }
+
+    &__text {
+        @include fontFamilySans(true);
+        font-size: 15px;
+        line-height: 18px;
+        color: #102040;
+    }
+}
+
+.clients {
+    padding: 70px $padding-section 64px;
+
+    &__map {
+        width: 100%;
+    }
+}
+
+.join-section {
+    background: url(../img/image15.png) no-repeat 98px bottom;
+    background-color: $dark-blue;
+    overflow: auto;
+}
+
+.join {
+    padding: 70px $padding-section;
+    width: 68%;
+    float: right;
+
+    &__caption {
+        @include fontFamilySans(false);
+        font-size: 28px;
+        line-height: 35px;
+        color: white;
+        margin-bottom: 24px;
+    }
+
+    &__text {
+        color: $transparency-white;
+        width: 87%;
+        @include fontFamilySans(true);
+        font-size: 20px;
+        line-height: 26px;
+        margin-bottom: 40px;
+    }
+
+    &__btn {
+        font-size: 16px;
+        height: 60px;
+    }
+}
+
+.discussions-container {
+    @extend .news__latest-posts;
+}
+
+.discussions {
+    padding: 70px $padding-section 90px;
+}
+
+.discussion {
+    width: 30%;
+    margin-bottom: 25px;
+
+    &__caption {
+        margin: 8px 0 13px;
+        @include fontFamilySans(false);
+        font-size: 16px;
+        line-height: 22px;
+        color: #575757;
+
+        &-link {
+            color: #575757;
+            text-decoration: none;
+        }
+    }
+}
+
+
+.footer {
+    background-color: $dark-blue;
+    @include fontFamilySans(true);
+    color: white;
+    padding: 34px $padding-section 22px;
+
+    &-main {
+
+        &__caption {
+            font-weight: normal;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        &__link {
+            font-weight: bold;
+            font-size: 19px;
+        }
+
+        &__item {
+            margin-bottom: 14px;
+        }
+
+        &__logo {
+            height: 100%;
+
+            &-img {
+                margin-bottom: 32px;
+            }
+        }
+    }
+
+    &__caption {
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    &__link {
+        color: white;
+        text-decoration: none;
+    }
+
+    &-structure {
+        width: 18%;
+
+        &__li {
+            list-style-type: none;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__line {
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.2);
+        width: 100%;
+        margin: 36px 0 15px;
+    }
+
+    &-callback {
+        width: 30%;
+
+        &__form {
+            margin-top: 22px;
+        }
+
+        &__text {
+            font-size: 16px;
+            line-height: 21px;
+        }
+
+        &__input {
+            display: block;
+            height: 44px;
+            width: 100%;
+
+            &-text {
+                padding: 0 20px;
+                font-size: 16px;
+                margin-bottom: 10px;
+
+                &::placeholder {
+                    color: #B8B8B8;
+                }
+            }
+
+            &-btn {
+                font-size: 16px;
+            }
+        }
+    }
+
+    &__bottom {
+        &-right-block {
+            width: 665px;
+            @extend .news__latest-posts;
+        }
+
+        &-text {
+            font-size: 14px;
+        }
+    }
+}
+
+.footer-row {
+    @extend .news__latest-posts;
+}
