@@ -60,7 +60,6 @@
 .counters {
   color: white;
   padding: 0 170px 90px;
-  width: 98%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -166,7 +165,6 @@
 
 .reasons-section {
   background-color: #F1F3F9;
-  padding: 70px 170px 23px;
 }
 
 .section-caption {
@@ -177,6 +175,10 @@
 }
 
 .reasons {
+  padding: 70px 170px 23px;
+}
+
+.reasons-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -221,7 +223,7 @@
   color: #919191;
 }
 
-.offering-section {
+.offerings {
   padding: 70px 170px;
 }
 
@@ -320,8 +322,11 @@
   visibility: visible;
 }
 
-.news-section {
+.news {
   padding: 70px 170px 35px;
+}
+
+.news-section {
   background-color: #F1F3F9;
 }
 
@@ -470,10 +475,6 @@
   width: 30.333%;
 }
 
-.section-subscribe {
-  background-color: #030235;
-}
-
 .subscribe {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -486,6 +487,10 @@
           align-items: center;
   color: white;
   padding: 60px 170px;
+}
+
+.subscribe-section {
+  background-color: #030235;
 }
 
 .subscribe__caption {
@@ -667,16 +672,27 @@
   width: 100%;
 }
 
-.join-section {
-  background: url(../img/image15.png) no-repeat 98px bottom;
-  background-color: #030235;
-  overflow: auto;
+.join {
+  width: 60%;
 }
 
-.join {
+.join-section {
+  background-color: #030235;
+}
+
+.join-container {
+  background: url(../img/image15.png) no-repeat 98px bottom;
+  background-color: #030235;
   padding: 70px 170px;
-  width: 68%;
-  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .join__caption {
@@ -727,6 +743,9 @@
   background-color: #030235;
   font-family: 'PT Sans', sans-serif;
   color: white;
+}
+
+.footer-container {
   padding: 34px 170px 22px;
 }
 
@@ -831,5 +850,12 @@
 
 .footer__bottom-text {
   font-size: 14px;
+}
+
+@media all and (min-width: 1280px) {
+  section > div, .footer-container {
+    margin: 0 auto;
+    width: 1280px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

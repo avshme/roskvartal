@@ -9,4 +9,5 @@ $(document).ready(function () {
         ($('.offering-nav__item').eq(indexBtn)).toggleClass('offering-nav__item--active').hide().fadeIn("fast");
         ($('.offering-item').eq(indexBtn)).toggleClass('offering-item--active').hide().fadeIn("fast");
     });
+    
 });

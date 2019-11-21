@@ -70,7 +70,6 @@
 .counters {
     color: white;
     padding: 0 $padding-section 90px;
-    width: 98%;
     @include flexJustifyAlign(space-between, flex-start);
     flex-wrap: wrap;
 }
@@ -142,7 +141,7 @@
 
 .reasons-section {
     background-color: $light-blue-bg;
-    padding: 70px $padding-section 23px;
+
 }
 
 .section-caption {
@@ -153,8 +152,12 @@
 }
 
 .reasons {
-    @include flexJustifyAlign(space-between, center);
-    flex-wrap: wrap;
+    padding: 70px $padding-section 23px;
+
+    &-container {
+        @include flexJustifyAlign(space-between, center);
+        flex-wrap: wrap;
+    }
 
     &-item {
         @include flexJustifyAlign(space-between, flex-start);
@@ -180,7 +183,7 @@
     }
 }
 
-.offering-section {
+.offerings {
     padding: 70px $padding-section;
 }
 
@@ -272,9 +275,12 @@
     }
 }
 
-.news-section {
+.news {
     padding: 70px $padding-section 35px;
-    background-color: $light-blue-bg;
+
+    &-section {
+        background-color: $light-blue-bg;
+    }
 }
 
 .post-review {
@@ -388,11 +394,11 @@
     }
 }
 
-.section-subscribe {
-    background-color: $dark-blue;
-}
-
 .subscribe {
+    &-section {
+        background-color: $dark-blue;
+    }
+
     @include flexJustifyAlign(space-between, center);
     color: white;
     padding: 60px $padding-section;
@@ -533,16 +539,19 @@
     }
 }
 
-.join-section {
-    background: url(../img/image15.png) no-repeat 98px bottom;
-    background-color: $dark-blue;
-    overflow: auto;
-}
-
 .join {
-    padding: 70px $padding-section;
-    width: 68%;
-    float: right;
+    &-section {
+        background-color: $dark-blue;
+    }
+
+    &-container {
+        background: url(../img/image15.png) no-repeat 98px bottom;
+        background-color: $dark-blue;
+        padding: 70px $padding-section;
+        @include flexJustifyAlign(flex-end, center);
+    }
+
+    width: 60%;
 
     &__caption {
         @include fontFamilySans(false);
@@ -598,10 +607,12 @@
     background-color: $dark-blue;
     @include fontFamilySans(true);
     color: white;
-    padding: 34px $padding-section 22px;
+
+    &-container {
+        padding: 34px $padding-section 22px;
+    }
 
     &-main {
-
         &__caption {
             font-weight: normal;
             text-transform: uppercase;
@@ -700,4 +711,12 @@
 
 .footer-row {
     @extend .news__latest-posts;
+}
+
+@media all and (min-width: 1280px) {
+
+    section>div, .footer-container {
+        margin: 0 auto;
+        width: 1280px;
+    }
 }
